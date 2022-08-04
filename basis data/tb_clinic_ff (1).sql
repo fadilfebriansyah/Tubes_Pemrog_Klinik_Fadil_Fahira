@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2022 pada 18.27
+-- Waktu pembuatan: 04 Agu 2022 pada 19.16
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -206,14 +206,24 @@ CREATE TABLE `transaction` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Struktur dari tabel `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
+  `user_id` int(10) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `apikey` varchar(50) NOT NULL
+  `no_hp` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`, `no_hp`) VALUES
+(1, 'fadil', 'fadil', '0895358349898'),
+(2, 'fadilcs1', 'fadil', '0895658552'),
+(3, 'fadilcs12', 'fadil', '0895658585');
 
 --
 -- Indexes for dumped tables
@@ -275,6 +285,12 @@ ALTER TABLE `transaction`
   ADD KEY `registry_id` (`registry_id`);
 
 --
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -325,6 +341,12 @@ ALTER TABLE `registry`
 --
 ALTER TABLE `transaction`
   MODIFY `transaction_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
