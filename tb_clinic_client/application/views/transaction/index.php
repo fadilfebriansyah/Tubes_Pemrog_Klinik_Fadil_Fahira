@@ -29,11 +29,8 @@
                                 <tr class="table-primary">
                                     <th>Transaction ID</th>
                                     <th>Transaction DATE</th>
-                                    <th>Registry Price</th>
-                                    <th>Medical Price</th>
-                                    <th>Action Price</th>
-                                    <th>Recipe Total</th>
                                     <th>Transaction TOTAL</th>
+                                    <th>Medical ID</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -44,12 +41,8 @@
                                     <tr>
                                         <td><?= $row['transaction_id'] ?></td>
                                         <td><?= $row['transaction_date'] ?></td>
-                                        <td><?= $row['registry_price'] ?></td>
-                                        <td><?= $row['medical_price'] ?></td>
-                                        <td><?= $row['action_price'] ?></td>
-                                        <td><?= $row['medicine_price_total'] ?></td>
                                         <td><?= $row['transaction_total'] ?></td>
-                                       
+                                        <td><?= $row['medical_id'] ?></td>
                                         <td>
                                             <a href="<?= base_url('transaction/detail/'.$row['transaction_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                                             <a href="<?= base_url('transaction/edit/'.$row['transaction_id'] )?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>

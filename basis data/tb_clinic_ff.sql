@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2022 pada 19.16
+-- Waktu pembuatan: 05 Agu 2022 pada 17.33
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -65,6 +65,23 @@ INSERT INTO `doctor` (`doctor_id`, `doctor_name`, `doctor_address`, `doctor_gend
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `keys`
+--
+
+CREATE TABLE `keys` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `key` varchar(40) NOT NULL,
+  `level` int(2) NOT NULL,
+  `ignore_limits` tinyint(1) NOT NULL DEFAULT 0,
+  `is_private_key` tinyint(1) NOT NULL DEFAULT 0,
+  `ip_addresses` text DEFAULT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `medical_record`
 --
 
@@ -85,12 +102,9 @@ CREATE TABLE `medical_record` (
 --
 
 INSERT INTO `medical_record` (`medical_id`, `medical_date`, `medical_diagnose`, `medical_temperature`, `medical_blood_pressure`, `medical_price`, `medical_total`, `registry_id`, `action_id`) VALUES
-(14, '2022-08-01', ' Demam', ' 37 derajat', ' 120/90', ' 50000', 0, 2, 1),
-(16, '0000-00-00', 'mabuk', '25 derajat', '120/50', '3000', 0, 2, 1),
-(17, '0000-00-00', 'mabuk', '25 derajat', '120/50', '4000', 0, 2, 1),
-(18, '0000-00-00', 'mabuk', '25 derajat', '120/50', '4000', 0, 3, 1),
-(19, '0000-00-00', 'mabuk cinta', '25 derajat', '120/50', '4000', 0, 1, 2),
-(20, '2022-08-03', 'Mabuk', '22 Derajat', '100/500', '39990', 0, 1, 1);
+(28, '2022-08-01', ' Demam', ' 37 derajat', ' 120/90', ' 10000', 117000, 1, 1),
+(29, '2022-08-05', 'Mabuk', '25 derajat', '120/90', '24000', 54000, 3, 1),
+(30, '2022-08-02', 'mabuk', '38 derajat', '120/90', '23000', 241000, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -135,8 +149,9 @@ CREATE TABLE `patience` (
 --
 
 INSERT INTO `patience` (`patience_id`, `patience_name`, `patience_address`, `patience_blood`, `patience_age`, `patience_gender`, `patience_phone`) VALUES
-(1, 'Fahmi', 'Kisaran bandung', 'B', '23', 'L', '085262774356'),
-(2, 'Salsa', 'Belawan', 'O', '23', 'P', '083456788907');
+(1, 'Fahmi', 'Kisaran', 'B', '23', 'L', '085262774356'),
+(2, 'Salsa', 'Belawan', 'O', '23', 'P', '083456788907'),
+(3, 'Fadil', 'Cibogo', 'A', '17', 'L', '081345678967');
 
 -- --------------------------------------------------------
 
@@ -157,14 +172,9 @@ CREATE TABLE `recipe` (
 --
 
 INSERT INTO `recipe` (`recipe_id`, `recipe_qty`, `recipe_total`, `medicine_id`, `medical_id`) VALUES
-(34, 3, 51000, 2, 14),
-(35, 2, 34000, 2, 14),
-(36, 8, 36000, 1, 14),
-(39, 3, 0, 3, 17),
-(40, 2, 9000, 1, 17),
-(41, 4, 18000, 1, 17),
-(42, 50, 850000, 2, 19),
-(43, 125, 125000, 3, 20);
+(51, 2, 9000, 1, 28),
+(52, 3, 3000, 3, 29),
+(53, 40, 180000, 1, 30);
 
 -- --------------------------------------------------------
 
@@ -188,7 +198,7 @@ CREATE TABLE `registry` (
 INSERT INTO `registry` (`registry_id`, `registry_date`, `registry_time`, `registry_price`, `patience_id`, `doctor_id`) VALUES
 (1, '2022-07-31', '19:19:05', '23000', 1, 1),
 (2, '2022-07-31', '19:19:05', '23000', 2, 1),
-(3, '2022-07-01', '02:59:00', '3000', 1, 1);
+(3, '2022-08-05', '21:31:00', '12000', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -200,8 +210,16 @@ CREATE TABLE `transaction` (
   `transaction_id` int(3) NOT NULL,
   `transaction_date` date NOT NULL,
   `transaction_total` varchar(50) NOT NULL,
-  `registry_id` int(3) NOT NULL
+  `medical_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `transaction`
+--
+
+INSERT INTO `transaction` (`transaction_id`, `transaction_date`, `transaction_total`, `medical_id`) VALUES
+(18, '2022-08-01', '108000', 28),
+(19, '2022-08-05', '241000', 30);
 
 -- --------------------------------------------------------
 
@@ -223,7 +241,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `no_hp`) VALUES
 (1, 'fadil', 'fadil', '0895358349898'),
 (2, 'fadilcs1', 'fadil', '0895658552'),
-(3, 'fadilcs12', 'fadil', '0895658585');
+(3, 'fadilcs12', 'fadil', '0895658585'),
+(4, 'fahira', 'fahira', '085262774355');
 
 --
 -- Indexes for dumped tables
@@ -240,6 +259,12 @@ ALTER TABLE `action`
 --
 ALTER TABLE `doctor`
   ADD PRIMARY KEY (`doctor_id`);
+
+--
+-- Indeks untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indeks untuk tabel `medical_record`
@@ -282,7 +307,7 @@ ALTER TABLE `registry`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`transaction_id`),
-  ADD KEY `registry_id` (`registry_id`);
+  ADD KEY `medical_id` (`medical_id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -310,7 +335,7 @@ ALTER TABLE `doctor`
 -- AUTO_INCREMENT untuk tabel `medical_record`
 --
 ALTER TABLE `medical_record`
-  MODIFY `medical_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `medical_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `medicine`
@@ -322,13 +347,13 @@ ALTER TABLE `medicine`
 -- AUTO_INCREMENT untuk tabel `patience`
 --
 ALTER TABLE `patience`
-  MODIFY `patience_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `patience_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `recipe`
 --
 ALTER TABLE `recipe`
-  MODIFY `recipe_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `recipe_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `registry`
@@ -340,24 +365,30 @@ ALTER TABLE `registry`
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `transaction_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
+-- Ketidakleluasaan untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  ADD CONSTRAINT `keys_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
 -- Ketidakleluasaan untuk tabel `medical_record`
 --
 ALTER TABLE `medical_record`
-  ADD CONSTRAINT `medical_record_ibfk_1` FOREIGN KEY (`registry_id`) REFERENCES `registry` (`registry_id`),
-  ADD CONSTRAINT `medical_record_ibfk_2` FOREIGN KEY (`action_id`) REFERENCES `action` (`action_id`);
+  ADD CONSTRAINT `medical_record_ibfk_2` FOREIGN KEY (`action_id`) REFERENCES `action` (`action_id`),
+  ADD CONSTRAINT `medical_record_ibfk_3` FOREIGN KEY (`registry_id`) REFERENCES `registry` (`registry_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `recipe`
@@ -377,7 +408,7 @@ ALTER TABLE `registry`
 -- Ketidakleluasaan untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`registry_id`) REFERENCES `registry` (`registry_id`);
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`medical_id`) REFERENCES `medical_record` (`medical_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

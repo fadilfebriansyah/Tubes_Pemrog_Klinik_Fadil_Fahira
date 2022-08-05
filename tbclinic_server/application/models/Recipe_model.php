@@ -44,6 +44,11 @@ class Recipe_model extends CI_Model
         $this->db->where('medicine.medicine_id', $data['medicine_id']);
         $this->db->select('medicine.medicine_price as harga_obat');
         $obatHarga = $this->db->get()->row();
+
+        $this->db->from('medical_record');
+        $this->db->where('medical_record.medical_id', $data['medical_id']);
+        $this->db->select('medical_record.medical_total as harga_medis');
+        $medisHarga = $this->db->get()->row();
         
         $sumTotal = intval($resepTotal->resep_qty) * intval($obatHarga->harga_obat);
 
@@ -51,18 +56,23 @@ class Recipe_model extends CI_Model
             'recipe_total' => $sumTotal
         ], ['recipe_id' => $idNewInsert]);
 
+        $Total = $sumTotal + intval($medisHarga->harga_medis);
+
+        $this->db->update('medical_record', [
+            'medical_total' => $Total 
+        ], ['medical_id' => $data['medical_id']]);
+
         return 1;
     }
 
-    //fungsi untuk mengubah data
-    public function updateRecipe
-($data, $recipe_id)
-    {
-        //Menggunakan Query Builder
-        $this->db->update($this->_table_recipe, $data, ['recipe_id' => $recipe_id]);
-        return $this->db->affected_rows();
-        // return $query;
-    }
+//     //fungsi untuk mengubah data
+//     public function updateRecipe
+// ($data, $recipe_id)
+//     {
+//         //Menggunakan Query Builder
+//         $this->db->update($this->_table_recipe, ['recipe_id' => $recipe_id ]);
+//         return $this->db->affected_rows();
+//     }
 
     //fungsi untuk menghapus data
     public function deleteRecipe

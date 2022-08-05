@@ -13,7 +13,7 @@ class Register_model extends CI_Model
         parent::__construct();
         $this->_guzzle = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/auth/register',
+            'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/auth/register',
             // You can set any number of default request options.
             'auth'  => ['ulbi', 'pemrograman3'],
         ]);

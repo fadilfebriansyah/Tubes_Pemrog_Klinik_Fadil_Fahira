@@ -53,12 +53,12 @@ function ptc_post()
             'patience_gender' => $this->post('patience_gender'),
             'patience_phone' => $this->post('patience_phone')
         );
-    $cek_data = $this->Patience_model->getDataPatience($this->post('patience_id'));
+
+    // $cek_data = $this->Patience_model->getDataPatience($this->post('patience_id'));
 
     //Jika semua data wajib diisi
     if (
-        $data['patience_id'] == NULL || $data['patience_name'] == NULL || $data['patience_address']
-        == NULL || $data['patience_blood'] == NULL || $data['patience_age'] == NULL || $data['patience_gender'] ==
+       $data['patience_name'] == NULL || $data['patience_address'] == NULL || $data['patience_blood'] == NULL || $data['patience_age'] == NULL || $data['patience_gender'] ==
         NULL || $data['patience_phone'] == NULL 
     ) {
 
@@ -71,7 +71,7 @@ function ptc_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data duplikat
-    } else if ($cek_data) {
+    }/* else if ($cek_data) {
         $this->response(
             [
                 'status' => false,
@@ -81,7 +81,7 @@ function ptc_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data tersimpan
-    } elseif ($this->Patience_model->insertPatience($data) > 0) {
+    }*/ elseif ($this->Patience_model->insertPatience($data) > 0) {
         $this->response(
             [
                 'status' => true,

@@ -43,16 +43,11 @@ class Transaction extends CI_Controller
       $data['title'] = "Tambah Data Transaction";
       
       $data['data_medical'] = $this->Medical_model->getAll();
-      $data['data_recipe'] = $this->Recipe_model->getAll();
-      $data['data_registry'] = $this->Registry_model->getAll();
 
-
-      $this->form_validation->set_rules('transaction_id', 'Transaction ID', 'trim|required');
+    
       $this->form_validation->set_rules('transaction_date', 'Transaction Name', 'trim|required');
-      $this->form_validation->set_rules('transaction_total', 'Transaction Address', 'trim|required');
       $this->form_validation->set_rules('medical_id', 'Medical ID', 'trim|required');
-      $this->form_validation->set_rules('registry_id', 'Registry ID', 'trim|required');
-      $this->form_validation->set_rules('recipe_id', 'Recipe ID', 'trim|required');
+      
 
       if ($this->form_validation->run() == false) {
          $this->load->view('templates/header', $data);
@@ -65,8 +60,6 @@ class Transaction extends CI_Controller
             "transaction_date" => $this->input->post('transaction_date'),
             "transaction_total" => $this->input->post('transaction_total'),
             "medical_id" => $this->input->post('medical_id'),
-            "registry_id" => $this->input->post('registry_id'),
-            "recipe_id" => $this->input->post('recipe_id'),
             "KEY" => "ulbi123"
          ];
 

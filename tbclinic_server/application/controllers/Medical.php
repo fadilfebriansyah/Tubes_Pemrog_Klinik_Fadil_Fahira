@@ -45,7 +45,6 @@ public function mdc_get()
 function mdc_post()
 {
     $data = array(
-        'medical_id' => $this->post('medical_id'),
         'medical_date' => $this->post('medical_date'),
         'medical_diagnose' => $this->post('medical_diagnose'),
         'medical_temperature' => $this->post('medical_temperature'),
@@ -60,7 +59,8 @@ function mdc_post()
 
     //Jika semua data wajib diisi
     if (
-         $data['medical_date'] == NULL  || $data['medical_diagnose'] == NULL|| $data['medical_temperature'] == NULL || $data['medical_blood_pressure'] == NULL || $data['medical_price'] == NULL ||  $data['registry_id'] == NULL || $data['action_id'] == NULL 
+         $data['medical_date'] == NULL  || $data['medical_diagnose'] == NULL|| $data['medical_temperature'] == NULL ||
+          $data['medical_blood_pressure'] == NULL ||  $data['medical_price'] == NULL ||  $data['registry_id'] == NULL || $data['action_id'] == NULL 
     ) {
 
         $this->response(
@@ -112,7 +112,8 @@ function mdc_put()
         'medical_temperature' => $this->put('medical_temperature'),
         'medical_blood_pressure' => $this->put('medical_blood_pressure'),
         'medical_price' => $this->put('medical_price'),
-        'medical_status' => $this->put('medical_status'),
+        'medical_total' => $this->put('medical_total'),
+        'registry_id' => $this->put('registry_id'),
         'action_id' => $this->put('action_id')
     );
     //Jika field medical_id tidak diisi

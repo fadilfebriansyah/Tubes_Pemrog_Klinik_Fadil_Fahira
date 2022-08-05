@@ -27,7 +27,6 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tablePATIENCE">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>PATIENCE ID</th>
                                     <th>PATIENCE NAME</th>
                                     <th>PATIENCE ADDRESS</th>
                                     <th>PATIENCE BLOOD</th>
@@ -42,7 +41,6 @@
                                 foreach ($data_patience as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['patience_id'] ?></td>
                                         <td><?= $row['patience_name'] ?></td>
                                         <td><?= $row['patience_address'] ?></td>
                                         <td><?= $row['patience_blood'] ?></td>

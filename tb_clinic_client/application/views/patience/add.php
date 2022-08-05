@@ -9,15 +9,6 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes);
                     ?>
-                    <div class="form-group row">
-                        <label for="patience_id" class="col-sm-2 col-form-label">Patience Id</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="patience_id" name="patience_id" value="<?= set_value('patience_id'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('patience_id') ?>
-                            </small>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label for="patience_name" class="col-sm-2 col-form-label">Patience Name</label>

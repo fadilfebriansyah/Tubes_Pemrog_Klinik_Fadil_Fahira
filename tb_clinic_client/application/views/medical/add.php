@@ -87,22 +87,24 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="action_id" class="col-sm-2 col-form-label">Tindakan</label>
-                        <div class="col-sm-5">
-                            <select class="form-control" name="action_id" id="action_id">
-                                <option value="">Silahkan Pilih Tindakan</option>
-                                <?php foreach ($data_action as $act) : ?>
-                                    <option value="<?= $act['action_id'] ?>"><?= $act['action_name'] ?></option>
+                    <label for="action_id" class="col-sm-2 col-form-label">ACTION ID</label>
+                    <div class="col-sm-5">
+                            <select class="form-control" id="action_id" name="action_id">
+                            <option value="">Silahkan Pilih Tindakan</option>
+                                <?php 
+                                foreach ($data_action as $row) :
+                                ?>
+                                <option value="<?= $row['action_id'] ?>"><?= $row['action_name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <small class="text-danger">
                                 <?php echo form_error('action_id') ?>
                             </small>
                         </div>
-                    </div>
-
+                    </div> 
+                    
                     <div class="form-group row">
-                        <label for="harga_aksi" class="col-sm-2 col-form-label">Harga Tindakan</label>
+                        <label for="harga_aksi" class="col-sm-2 col-form-label">HARGA TINDAKAN</label>
                         <div class="col-sm-5">
                             <input type="number" class="form-control" id="harga_aksi" name="harga_aksi" value="" disabled>
                         </div>
@@ -128,17 +130,18 @@
     </div>
 </div>
 </div>
+
 <script>
-    $('#action_id').change(function() {
+     $('#action_id').change(function () {
         var action_id = $('#action_id').val();
 
         $.ajax({
             type: 'GET',
-            url: 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/action/getharga?KEY=ulbi123&action_id' + action_id,
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa("ulbi" + ":" + "pemrograman3"));
+            url: 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/action/getharga?KEY=ulbi123&action_id='+action_id,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader ("Authorization", "Basic " + btoa("ulbi" + ":" + "pemrograman3"));
             },
-            success: function(data) {
+            success: function (data) {
                 $('#harga_aksi').val(data.data.action_price)
             }
         })

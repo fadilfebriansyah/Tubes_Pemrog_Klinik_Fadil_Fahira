@@ -13,7 +13,7 @@ class Recipe_model extends CI_Model
         parent::__construct();
         $this->_guzzle = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/recipe/rcp',
+            'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/recipe/rcp',
             // You can set any number of default request options.
             'auth'  => ['ulbi', 'pemrograman3'],
         ]);
@@ -62,17 +62,17 @@ class Recipe_model extends CI_Model
         return $result;
     }
 
-    public function update($data)
-    {
-        $response = $this->_guzzle->request('PUT', '', [
-            'http_errors' => false,
-            'form_params' => $data
-        ]);
+    // public function update($data)
+    // {
+    //     $response = $this->_guzzle->request('PUT', '', [
+    //         'http_errors' => false,
+    //         'form_params' => $data
+    //     ]);
 
-        $result = json_decode($response->getBody()->getContents(), TRUE);
+    //     $result = json_decode($response->getBody()->getContents(), TRUE);
 
-        return $result;
-    }
+    //     return $result;
+    // }
 
 
     public function delete($recipe_id)

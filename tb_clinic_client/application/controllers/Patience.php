@@ -39,7 +39,6 @@ class Patience extends CI_Controller
    {
       $data['title'] = "Tambah Data Patience";
 
-      $this->form_validation->set_rules('patience_id', 'Patience ID', 'trim|required');
       $this->form_validation->set_rules('patience_name', 'Patience Name', 'trim|required');
       $this->form_validation->set_rules('patience_address', 'Patience Address', 'trim|required');
       $this->form_validation->set_rules('patience_blood', 'Patience Blood', 'trim|required');

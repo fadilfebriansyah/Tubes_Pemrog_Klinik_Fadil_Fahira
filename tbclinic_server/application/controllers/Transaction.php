@@ -45,19 +45,15 @@ class Transaction extends RestController
     function trs_post()
     {
         $data = array(
-            'transaction_id' => $this->post('transaction_id'),
             'transaction_date' => $this->post('transaction_date'),
             'transaction_total' => $this->post('transaction_total'),
             'medical_id' => $this->post('medical_id'),
-            'registry_id' => $this->post('registry_id'),
-            'recipe_id' => $this->post('recipe_id')
         );
 
-        $cek_data = $this->Transaction_model->getDataTransaction($this->post('transaction_id'));
+        // $cek_data = $this->Transaction_model->getDataTransaction($this->post('transaction_id'));
         
         //Jika semua data wajib diisi
-        if ($data['transaction_id'] == NULL || $data['transaction_date'] == NULL || $data['transaction_total']
-        == NULL || $data['medical_id'] ==  NULL|| $data['registry_id'] == NULL || $data['recipe_id'] == NULL) {
+        if ( $data['transaction_date'] == NULL ||  $data['medical_id'] == NULL) {
             $this->response(
                 [
                     'status' => false,
@@ -67,7 +63,7 @@ class Transaction extends RestController
                 RestController::HTTP_BAD_REQUEST
             );
         //Jika data duplikat
-        } else if ($cek_data) {
+        } /*else if ($cek_data) {
             $this->response(
                 [
                     'status' => false,
@@ -77,7 +73,7 @@ class Transaction extends RestController
                 RestController::HTTP_BAD_REQUEST
             );
         //Jika data tersimpan
-        } elseif ($this->Transaction_model->insertTransaction($data) > 0) {
+        }*/ elseif ($this->Transaction_model->insertTransaction($data) > 0) {
             $this->response(
                 [
                     'status' => true,

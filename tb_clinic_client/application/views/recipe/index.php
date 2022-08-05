@@ -48,7 +48,6 @@
                                        
                                         <td>
                                             <a href="<?= base_url('recipe/detail/'.$row['recipe_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('recipe/edit/'.$row['recipe_id'] )?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                             <a href="<?= base_url('recipe/delete/'.$row['recipe_id'] )?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

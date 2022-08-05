@@ -46,15 +46,15 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label for="registry_id" class="col-sm-2 col-form-label">Registry Id</label>
+                        <label for="medical_id" class="col-sm-2 col-form-label">Medical ID</label>
                         <div class="col-sm-5">
-                        <select class="form-control" name="registry_id" id="registry_id">
-                                <?php foreach ($data_registry as $dct) : ?>
-                                    <option value="<?= $dct['registry_id'] ?>"><?= $dct['registry_id'] ?></option>
+                        <select class="form-control" name="medical_id" id="medical_id">
+                                <?php foreach ($data_medical as $mdc) : ?>
+                                    <option value="<?= $mdc['medical_id'] ?>"><?= $mdc['medical_id'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <small class="text-danger">
-                                <?php echo form_error('registry_id') ?>
+                                <?php echo form_error('medical_id') ?>
                             </small>
                         </div>
                     </div>

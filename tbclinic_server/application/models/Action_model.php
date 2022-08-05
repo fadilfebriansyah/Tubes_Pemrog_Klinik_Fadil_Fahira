@@ -51,6 +51,7 @@ class Action_model extends CI_Model
         return $this->db->affected_rows();
         // return $query;
     }
+    
     public function getHarga($action_id)
     {
        $this->db->from('action');
