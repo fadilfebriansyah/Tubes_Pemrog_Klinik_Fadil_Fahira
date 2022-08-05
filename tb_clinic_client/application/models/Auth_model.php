@@ -13,7 +13,7 @@ class Auth_model extends CI_Model
         parent::__construct();
         $this->_guzzle = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/auth',
+            'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/auth',
             // You can set any number of default request options.
             'auth'  => ['ulbi', 'pemrograman3'],
         ]);
@@ -35,7 +35,7 @@ class Auth_model extends CI_Model
     public function registerClient($data)
     {
         $registerUri = $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/auth/register',
+            'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/auth/register',
         ]);
 
         $response = $this->_guzzle->request('POST', '', [
@@ -50,7 +50,7 @@ class Auth_model extends CI_Model
 
     public function simpanKunci($data) {
         $simpanKunciUri = new Client([
-            'base_uri' => 'http://localhost/Tubes_Pemrograman_KlinikFF_Fadil_Fahira/tbclinic_server/auth/simpankunci',
+            'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/auth/simpankunci',
         ]);
 
         $response = $simpanKunciUri->request('POST', '', [

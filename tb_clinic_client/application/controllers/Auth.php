@@ -15,7 +15,9 @@ class Auth extends CI_Controller
    public function index()
    {
     if ($this->session->userdata('key') == ''){
+		$this->load->view('templates/header');
         $this->load->view('auth/login');
+		$this->load->view('templates/footer');
     } else{
         redirect ('dashboard');
     }
@@ -47,7 +49,9 @@ class Auth extends CI_Controller
 
 	public function register()
 	{
+		$this->load->view('templates/header');
 		$this->load->view('auth/register');
+		$this->load->view('templates/footer');
 	}
     public function registerClient()
 	{
@@ -71,28 +75,33 @@ class Auth extends CI_Controller
 	}
 
 	public function generateapikunci($newId) {
-		$newKey['newKey'] = '';
-		$newKey['newId'] = $newId;
-		$this->load->view('auth/generatekunci', $newKey);
+		$kuncibaru['kuncibaru'] = '';
+		$kuncibaru['newId'] = $newId;
+
+		$this->load->view('templates/header', $newId);
+		$this->load->view('auth/generatekunci', $kuncibaru);
+		$this->load->view('templates/footer');
 	}
 
 	public function generatekunci() {
-		$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$charsLength = strlen($chars);
+		$krktr = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$pjgktkr = strlen($krktr);
 		$keyLength = 14;
-		$newKey['newKey'] = '';
+		$kuncibaru['kuncibaru'] = '';
 		for ($i = 0;$i < $keyLength; $i++) {
-			$newKey['newKey'] .= $chars[rand(0, $charsLength - 1)];
+			$kuncibaru['kuncibaru'] .= $krktr[rand(0, $pjgktkr - 1)];
 		}
 		$data = [
 			'user_id' => $this->input->post('user_id'),
-			'key' => $newKey['newKey']
+			'key' => $kuncibaru['kuncibaru']
 		];
 
 		$saveKey = $this->Auth_model->simpanKunci($data);
-		$newKey['newId'] = $this->input->post('user_id');
-
-		$this->load->view('auth/generatekunci', $newKey);
+		$kuncibaru['newId'] = $this->input->post('user_id');
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('auth/generatekunci', $kuncibaru);
+		$this->load->view('templates/footer');
 	}
 	// public function registerClient()
 	// {

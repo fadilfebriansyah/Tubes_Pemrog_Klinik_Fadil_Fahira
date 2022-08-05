@@ -27,7 +27,6 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableDOCTOR">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>DOCTOR ID</th>
                                     <th>DOCTOR NAME</th>
                                     <th>DOCTOR ADDRESS</th>
                                     <th>DOCTOR GENDER</th>
@@ -40,7 +39,6 @@
                                 foreach ($data_doctor as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['doctor_id'] ?></td>
                                         <td><?= $row['doctor_name'] ?></td>
                                         <td><?= $row['doctor_address'] ?></td>
                                         <td><?= $row['doctor_gender'] ?></td>

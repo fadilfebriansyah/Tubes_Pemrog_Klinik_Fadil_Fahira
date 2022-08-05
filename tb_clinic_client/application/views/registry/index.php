@@ -27,12 +27,11 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableREGISTRY">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>REGISTRY ID</th>
-                                    <th>REGISTRY DATE</th>
-                                    <th>REGISTRY TIME</th>
-                                    <th>REGISTRY PRICE</th>
-                                    <th>PATIENCE ID</th>
-                                    <th>DOCTOR ID</th>
+                                    <th>NAMA PASIEN</th>
+                                    <th>TANGGAL</th>
+                                    <th>WAKTU</th>
+                                    <th>BIAYA</th>
+                                    <th>NAMA DOKTER</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -41,17 +40,16 @@
                                 foreach ($data_registry as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['registry_id'] ?></td>
+                                        <td><?= $row['patience_name'] ?></td>
                                         <td><?= $row['registry_date'] ?></td>
                                         <td><?= $row['registry_time'] ?></td>
-                                        <td><?= $row['registry_price'] ?></td>
-                                        <td><?= $row['patience_id'] ?></td>
-                                        <td><?= $row['doctor_id'] ?></td>
-                                       
+                                        <td><?= $row['registry_price'] ?></td> 
+                                        <td><?= $row['doctor_name'] ?></td>
+
                                         <td>
-                                            <a href="<?= base_url('registry/detail/'.$row['registry_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('registry/edit/'.$row['registry_id'] )?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="<?= base_url('registry/delete/'.$row['registry_id'] )?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('registry/detail/' . $row['registry_id']) ?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="<?= base_url('registry/edit/' . $row['registry_id']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="<?= base_url('registry/delete/' . $row['registry_id']) ?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

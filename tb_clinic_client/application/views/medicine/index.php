@@ -27,7 +27,6 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableMEDICINE">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>MEDICINE ID</th>
                                     <th>MEDICINE NAME</th>
                                     <th>MEDICINE CATEGORY</th>
                                     <th>MEDICINE PRICE</th>
@@ -39,7 +38,6 @@
                                 foreach ($data_medicine as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['medicine_id'] ?></td>
                                         <td><?= $row['medicine_name'] ?></td>
                                         <td><?= $row['medicine_category'] ?></td>
                                         <td><?= $row['medicine_price'] ?></td>
