@@ -20,7 +20,7 @@
                         </div>
                     <?php endif; ?>
                     <!-- /Alert kalau ada pesan dari controller -->
-							<form action="<?= base_url('auth/generatekey') ?>" method="post">
+							<form action="<?= base_url('auth/generatekunci') ?>" method="post">
 							<input type="text" name="key" placeholder="Munculah API KEY" readonly="true" value="<?php if($newKey != '') echo $newKey;?>"/>
 							<input type="hidden" name="user_id" value="<?php if($newId != '')echo $newId;?>">
 							<input type="submit" class="btn btn-primary btn-block" value="Generate Disini" <?php if($newKey != '') echo "disabled"?>></input>

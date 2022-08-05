@@ -60,7 +60,7 @@ class Auth extends CI_Controller
 		$insert = $this->Auth_model->registerClient($data);
 		if($insert['status'] == 'Register Berhasil'){
 			$this->session->set_flashdata('flash','Register Berhasil!');
-			$this->generateapikey($insert['data']);
+			$this->generateapikunci($insert['data']);
 		}elseif ($insert['status'] == 'Register Gagal') {
 			$this->session->set_flashdata('message','Inputan tidak boleh ada yang kosong!');
 			redirect('auth/register');
@@ -70,16 +70,16 @@ class Auth extends CI_Controller
 		}
 	}
 
-	public function generateapikey($newId) {
+	public function generateapikunci($newId) {
 		$newKey['newKey'] = '';
 		$newKey['newId'] = $newId;
 		$this->load->view('auth/generatekunci', $newKey);
 	}
 
-	public function generatekey() {
+	public function generatekunci() {
 		$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charsLength = strlen($chars);
-		$keyLength = 7;
+		$keyLength = 14;
 		$newKey['newKey'] = '';
 		for ($i = 0;$i < $keyLength; $i++) {
 			$newKey['newKey'] .= $chars[rand(0, $charsLength - 1)];
