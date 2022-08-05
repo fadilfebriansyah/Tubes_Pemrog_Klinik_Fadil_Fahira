@@ -9,12 +9,95 @@ use chriskacerguis\RestServer\RestController;
 class Auth extends RestController
 {
 
-    public function __construct()
+    public function __construct($config = 'restnokey')
     {
-        parent::__construct();
-        $this->load->model('Auth_model');
+        parent::__construct($config);
+        $this->load->model('Auth_model');       
+    }
+    public function index_post()
+    {
+        $username = $this->post('username');
+        $password = $this->post('password');
+        $data = $this->Auth_model->login($username, $password);
+        if ($data){
+            $this->response(
+                [
+                    'data'  => $data,
+                    'status' => 'Login Berhasil',
+                    'response_code' => RestController::HTTP_OK
+                ],
+                RestController::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'data' => '',
+                    'status' => 'Login Gagal',
+                    'response_code' => RestController::HTTP_NOT_FOUND
+                ],
+                RestController::HTTP_NOT_FOUND
+            );
+        }
     }
 
+    public function register_post()
+    {
+        $data = [			
+			"username" => $this->post('username'),
+			"password" => $this->post('password'),
+            "no_hp" => $this->post('no_hp'),
+		];
+        $register = $this->Auth_model->register($data);
+        if ($register != null){
+            $this->response(
+                [
+                    'data'  => $register,
+                    'status' => 'Register Berhasil',
+                    'response_code' => RestController::HTTP_OK
+                ],
+                RestController::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'data' => $register,
+                    'status' => 'Register Gagal',
+                    'response_code' => RestController::HTTP_NOT_FOUND
+                ],
+                RestController::HTTP_NOT_FOUND
+            );
+        }
+    }
+
+    public function simpankunci_post() {
+        $data = [
+            'user_id' => $this->post('user_id'),
+            'key' => $this->post('key')
+        ];
+
+        $keySaved = $this->Auth_model->SimpanKunci($data);
+        if ($keySaved > 0){
+            $this->response(
+                [
+                    'data'  => true,
+                    'status' => 'API Key Tersimpan',
+                    'response_code' => RestController::HTTP_OK
+                ],
+                RestController::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'data' => '',
+                    'status' => 'API key Gagal disimpan',
+                    'response_code' => RestController::HTTP_NOT_FOUND
+                ],
+                RestController::HTTP_NOT_FOUND
+            );
+        }
+    }
+}
+    /*
     //fungsi CRUD (GET, POST, PUT, DELETE) simpan di bawah sini
     public function register_get()
     {
@@ -133,4 +216,4 @@ class Auth extends RestController
             );
         }
     }
-}
+}*/

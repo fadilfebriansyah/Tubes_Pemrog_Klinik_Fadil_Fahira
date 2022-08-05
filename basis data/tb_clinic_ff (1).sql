@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2022 pada 19.16
+-- Waktu pembuatan: 05 Agu 2022 pada 10.55
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -61,6 +61,40 @@ CREATE TABLE `doctor` (
 
 INSERT INTO `doctor` (`doctor_id`, `doctor_name`, `doctor_address`, `doctor_gender`, `doctor_phone`) VALUES
 (1, 'Fahira', 'Belawan bahari', 'P', '085345678878');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `keys`
+--
+
+CREATE TABLE `keys` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `key` varchar(40) NOT NULL,
+  `level` int(2) NOT NULL,
+  `ignore_limits` tinyint(1) NOT NULL DEFAULT 0,
+  `is_private_key` tinyint(1) NOT NULL DEFAULT 0,
+  `ip_addresses` text DEFAULT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `keys`
+--
+
+INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
+(1, 1, 'ulbi', 0, 0, 0, NULL, 0),
+(2, 27, 'QUIie', 0, 0, 0, NULL, 0),
+(3, 27, 'viYJt', 0, 0, 0, NULL, 0),
+(4, 28, 'e6ywF', 0, 0, 0, NULL, 0),
+(5, 29, 'bisa', 0, 0, 0, NULL, 0),
+(6, 30, 'jCQmE', 0, 0, 0, NULL, 0),
+(7, 31, 'g1Aj3', 0, 0, 0, NULL, 0),
+(8, 32, '', 0, 0, 0, NULL, 0),
+(9, 32, 'mqToc', 0, 0, 0, NULL, 0),
+(10, 33, 'EFv3QEK', 0, 0, 0, NULL, 0),
+(11, 35, 'BLKGGk1', 0, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -223,7 +257,18 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `no_hp`) VALUES
 (1, 'fadil', 'fadil', '0895358349898'),
 (2, 'fadilcs1', 'fadil', '0895658552'),
-(3, 'fadilcs12', 'fadil', '0895658585');
+(3, 'fadilcs12', 'fadil', '0895658585'),
+(4, 'fadilll', 'fadil', '0895358349898'),
+(27, 'mulyojr', '12345', ''),
+(28, 'fahira', 'fahira', '0895658552'),
+(29, 'bisa', 'bisa', '0895658552'),
+(30, 'lancar', 'lancar', '0255558886'),
+(31, 'mulyojr1', '12345', '0895658552'),
+(32, 'mulyojr55', '12345', '0895658552'),
+(33, 'mulyojr3', '12345', '0895658552'),
+(34, 'mulyojr13', '12345', '0895658552'),
+(35, 'asti', 'asti', '08956585524'),
+(36, 'fahirazian', 'fahira', '0895658552');
 
 --
 -- Indexes for dumped tables
@@ -240,6 +285,13 @@ ALTER TABLE `action`
 --
 ALTER TABLE `doctor`
   ADD PRIMARY KEY (`doctor_id`);
+
+--
+-- Indeks untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indeks untuk tabel `medical_record`
@@ -307,6 +359,12 @@ ALTER TABLE `doctor`
   MODIFY `doctor_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT untuk tabel `medical_record`
 --
 ALTER TABLE `medical_record`
@@ -346,11 +404,17 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  ADD CONSTRAINT `keys_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `medical_record`

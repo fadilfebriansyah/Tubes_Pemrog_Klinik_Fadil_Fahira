@@ -21,6 +21,7 @@ class Doctor extends CI_Controller
       $this->load->view('templates/menu');
       $this->load->view('doctor/index', $data);
       $this->load->view('templates/footer');
+      
    }
 
    public function detail($doctor_id)

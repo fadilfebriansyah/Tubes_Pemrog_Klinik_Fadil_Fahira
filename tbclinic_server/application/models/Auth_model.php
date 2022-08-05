@@ -5,6 +5,39 @@ class Auth_model extends CI_Model
 {
     private $_table_users = 'users';
 
+    public function login($username, $password)
+    {
+        $this->db->from($this->_table_users);
+
+        $this->db->where('username',$username);
+        $this->db->where('password',$password);
+        $this->db->join('keys','keys.user_id = users.user_id');
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
+
+    public function register($data)
+    {
+        $this->db->insert($this->_table_users, [
+            'user_id' => '',
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'no_hp' =>$data['no_hp'],
+        ]);
+        $query = $this->db->insert_id();
+        return $query;
+    }
+
+    public function SimpanKunci($data){
+        $this->db->insert('keys', [
+            'user_id' => $data['user_id'],
+            'key' => $data['key']
+        ]);
+
+        return $this->db->affected_rows();
+    }
+
+/*
     //fungsi untuk mendapatkan data 
     public function getDataUser($user_id)
     {
@@ -81,5 +114,5 @@ class Auth_model extends CI_Model
         // $this->db->limit(1);
         // $query =  $this->db->get()->row_array();
         // return $query;
-    }
+    } */
 }
