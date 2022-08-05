@@ -43,12 +43,8 @@
                                     </button>
                                 </div>
                             <?php endif; ?>
-                            <?php
-                            //create form
-                            $attributes = array('method' => "post", "autocomplete" => "off");
-                            echo form_open('', $attributes);
-                            ?>
-                            <form class="user">
+                            
+                            <form action="<?= base_url('auth/registerclient') ?>" method="post" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username">
@@ -65,9 +61,6 @@
                                             <?= form_error('no_hp') ?>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="password" name="confirmpassword" placeholder="Repeat Password">
-                                    </div> -->
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0 text-center">
@@ -81,14 +74,14 @@
                                     </div> -->
                                 </div>
                                 <div class="col-sm-10 offset-md-2">
-                                    <button type="submit" class="btn btn-primary">Daftar</button>
+                                <input type="submit" class="btn btn-primary btn-block" value="Daftar">
                                 </div>
                                 <hr>
 
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="<?= base_url('login') ?>">Already have an account? Login!</a>
+                                <a class="small" href="<?= base_url('auth/login') ?>">Sudah punya akun? Login Lah</a>
                             </div>
                         </div>
                     </div>

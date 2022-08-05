@@ -21,6 +21,7 @@ class Patience extends CI_Controller
       $this->load->view('templates/menu');
       $this->load->view('patience/index', $data);
       $this->load->view('templates/footer');
+      
    }
 
    public function detail($patience_id)

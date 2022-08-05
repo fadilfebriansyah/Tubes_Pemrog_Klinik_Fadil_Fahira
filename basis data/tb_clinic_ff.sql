@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD:basis data/tb_clinic_ff.sql
 -- Waktu pembuatan: 05 Agu 2022 pada 17.33
+=======
+-- Waktu pembuatan: 05 Agu 2022 pada 10.55
+>>>>>>> 51d16dfbdf87e4d31368b1732580a404b34e2110:basis data/tb_clinic_ff (1).sql
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -79,6 +83,26 @@ CREATE TABLE `keys` (
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD:basis data/tb_clinic_ff.sql
+=======
+--
+-- Dumping data untuk tabel `keys`
+--
+
+INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
+(1, 1, 'ulbi', 0, 0, 0, NULL, 0),
+(2, 27, 'QUIie', 0, 0, 0, NULL, 0),
+(3, 27, 'viYJt', 0, 0, 0, NULL, 0),
+(4, 28, 'e6ywF', 0, 0, 0, NULL, 0),
+(5, 29, 'bisa', 0, 0, 0, NULL, 0),
+(6, 30, 'jCQmE', 0, 0, 0, NULL, 0),
+(7, 31, 'g1Aj3', 0, 0, 0, NULL, 0),
+(8, 32, '', 0, 0, 0, NULL, 0),
+(9, 32, 'mqToc', 0, 0, 0, NULL, 0),
+(10, 33, 'EFv3QEK', 0, 0, 0, NULL, 0),
+(11, 35, 'BLKGGk1', 0, 0, 0, NULL, 0);
+
+>>>>>>> 51d16dfbdf87e4d31368b1732580a404b34e2110:basis data/tb_clinic_ff (1).sql
 -- --------------------------------------------------------
 
 --
@@ -242,7 +266,21 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `no_hp`) VALUES
 (1, 'fadil', 'fadil', '0895358349898'),
 (2, 'fadilcs1', 'fadil', '0895658552'),
 (3, 'fadilcs12', 'fadil', '0895658585'),
+<<<<<<< HEAD:basis data/tb_clinic_ff.sql
 (4, 'fahira', 'fahira', '085262774355');
+=======
+(4, 'fadilll', 'fadil', '0895358349898'),
+(27, 'mulyojr', '12345', ''),
+(28, 'fahira', 'fahira', '0895658552'),
+(29, 'bisa', 'bisa', '0895658552'),
+(30, 'lancar', 'lancar', '0255558886'),
+(31, 'mulyojr1', '12345', '0895658552'),
+(32, 'mulyojr55', '12345', '0895658552'),
+(33, 'mulyojr3', '12345', '0895658552'),
+(34, 'mulyojr13', '12345', '0895658552'),
+(35, 'asti', 'asti', '08956585524'),
+(36, 'fahirazian', 'fahira', '0895658552');
+>>>>>>> 51d16dfbdf87e4d31368b1732580a404b34e2110:basis data/tb_clinic_ff (1).sql
 
 --
 -- Indexes for dumped tables
@@ -264,6 +302,10 @@ ALTER TABLE `doctor`
 -- Indeks untuk tabel `keys`
 --
 ALTER TABLE `keys`
+<<<<<<< HEAD:basis data/tb_clinic_ff.sql
+=======
+  ADD PRIMARY KEY (`id`),
+>>>>>>> 51d16dfbdf87e4d31368b1732580a404b34e2110:basis data/tb_clinic_ff (1).sql
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -332,6 +374,12 @@ ALTER TABLE `doctor`
   MODIFY `doctor_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `keys`
+--
+ALTER TABLE `keys`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT untuk tabel `medical_record`
 --
 ALTER TABLE `medical_record`
@@ -371,7 +419,11 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD:basis data/tb_clinic_ff.sql
   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+>>>>>>> 51d16dfbdf87e4d31368b1732580a404b34e2110:basis data/tb_clinic_ff (1).sql
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

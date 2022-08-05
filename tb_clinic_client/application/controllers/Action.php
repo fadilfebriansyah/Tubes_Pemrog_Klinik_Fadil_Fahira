@@ -21,6 +21,7 @@ class Action extends CI_Controller
       $this->load->view('templates/menu');
       $this->load->view('action/index', $data);
       $this->load->view('templates/footer');
+      
    }
 
    public function detail($action_id)

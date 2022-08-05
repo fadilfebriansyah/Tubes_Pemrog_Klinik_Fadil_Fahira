@@ -15,8 +15,15 @@ class Dashboard extends CI_Controller
    {
       $this->load->view('templates/header');
       $this->load->view('templates/menu');
-      $this->load->view('dashboard/index');
       $this->load->view('templates/footer');
+      
+		if ($this->session->userdata('KEY') != '') {
+			$this->load->view('dashboard/index');
+		}
+		else {
+			redirect('auth');
+		}
+	
    }
 
 }

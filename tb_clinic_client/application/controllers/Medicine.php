@@ -21,6 +21,7 @@ class Medicine extends CI_Controller
       $this->load->view('templates/menu');
       $this->load->view('medicine/index', $data);
       $this->load->view('templates/footer');
+      
    }
 
    public function detail($medicine_id)

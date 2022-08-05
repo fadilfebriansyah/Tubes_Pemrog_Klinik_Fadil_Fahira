@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $title ?></title>
+    <title>login</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('vendor/fontawesome-free/css/all.min.css');?>" rel="stylesheet">
@@ -48,12 +48,8 @@
                                             </button>
                                         </div>
                                     <?php endif; ?>
-                                    <?php
-                                    //create form
-                                    $attributes = array('method' => "post", "autocomplete" => "off");
-                                    echo form_open('', $attributes);
-                                    ?>
-                                    <form class="user">
+                                    
+                                    <form action="<?= base_url('auth/login') ?>" class="user" method="post">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Enter Username" required>
                                             <div class="invalid-feedback">
@@ -67,12 +63,12 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-10 offset-md-2" >
-                                            <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Login" ></input>
                                         </div>
                                         
                                     </form>
                                     <div class="text-center">
-                                <a class="small" href="<?= base_url('register') ?>">Create an Account!</a>
+                                <a class="small" href="<?= base_url('auth/register') ?>">Gapunya akun? Daftar Lah !!</a>
                             </div>
                                 </div>
 
