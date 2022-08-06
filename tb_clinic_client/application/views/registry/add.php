@@ -16,15 +16,6 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes);
                     ?>
-                    <div class="form-group row">
-                        <label for="registry_id" class="col-sm-2 col-form-label">Registry Id</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="registry_id" name="registry_id" value="<?= set_value('registry_id'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('registry_id') ?>
-                            </small>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label for="registry_date" class="col-sm-2 col-form-label">Registry Date</label>

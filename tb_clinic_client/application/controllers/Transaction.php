@@ -16,7 +16,7 @@ class Transaction extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Transaction";
+      $data['title'] = "List Data Transaksi";
 
       $data['data_transaction'] = $this->Transaction_model->getAll();
 
@@ -28,7 +28,7 @@ class Transaction extends CI_Controller
 
    public function detail($transaction_id)
    {
-      $data['title'] = "Detail Data Transaction";
+      $data['title'] = "Detail Data Transaksi";
 
       $data['data_transaction'] = $this->Transaction_model->getById($transaction_id);
 
@@ -40,7 +40,7 @@ class Transaction extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Transaction";
+      $data['title'] = "Tambah Data Transaksi";
       
       $data['data_medical'] = $this->Medical_model->getAll();
 
@@ -56,7 +56,6 @@ class Transaction extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "transaction_id" => $this->input->post('transaction_id'),
             "transaction_date" => $this->input->post('transaction_date'),
             "transaction_total" => $this->input->post('transaction_total'),
             "medical_id" => $this->input->post('medical_id'),
@@ -79,7 +78,7 @@ class Transaction extends CI_Controller
 
    public function edit($transaction_id)
    {
-      $data['title'] = "Update Data Transaction";
+      $data['title'] = "Update Data Transaksi";
 
       $data['data_transaction'] = $this->Transaction_model->getById($transaction_id);
       $data['data_medical'] = $this->Medical_model->getAll();

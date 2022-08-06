@@ -3,7 +3,7 @@
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>Patience</a></li>
+            <li class="breadcrumb-item"><a>Pasien</a></li>
             <li class="breadcrumb-item active" aria-current="page">List Data</li>
         </ol>
     </nav>
@@ -27,12 +27,12 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tablePATIENCE">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>PATIENCE NAME</th>
-                                    <th>PATIENCE ADDRESS</th>
-                                    <th>PATIENCE BLOOD</th>
-                                    <th>PATIENCE AGE</th>
-                                    <th>PATIENCE GENDER</th>
-                                    <th>PATIENCE PHONE</th>
+                                    <th>NAME PASIEN</th>
+                                    <th>ALAMAT</th>
+                                    <th>GOLONGAN DARAH</th>
+                                    <th>UMUR</th>
+                                    <th>JENIS KELAMIN</th>
+                                    <th>TELEPON</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>

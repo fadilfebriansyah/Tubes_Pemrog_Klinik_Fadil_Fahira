@@ -27,10 +27,10 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableMEDICINE">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>MEDICINE NAME</th>
-                                    <th>MEDICINE CATEGORY</th>
-                                    <th>MEDICINE PRICE</th>
-                                    <th>ACTION</th>
+                                    <th>NAMA OBAT</th>
+                                    <th>KATEGORI</th>
+                                    <th>HARGA</th>
+                                    <th>AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>

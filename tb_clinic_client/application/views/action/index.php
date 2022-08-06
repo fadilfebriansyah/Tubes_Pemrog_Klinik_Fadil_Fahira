@@ -27,10 +27,9 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableACTION">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>ACTION ID</th>
-                                    <th>ACTION NAME</th>
-                                    <th>ACTION PRICE</th>
-                                    <th>ACTION</th>
+                                    <th>NAMA TINDAKAN</th>
+                                    <th>HARGA</th>
+                                    <th>AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +37,6 @@
                                 foreach ($data_action as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['action_id'] ?></td>
                                         <td><?= $row['action_name'] ?></td>
                                         <td><?= $row['action_price'] ?></td>
                                        

@@ -13,7 +13,7 @@ class Doctor extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Doctor";
+      $data['title'] = "List Data Dokter";
 
       $data['data_doctor'] = $this->Doctor_model->getAll();
 
@@ -26,7 +26,7 @@ class Doctor extends CI_Controller
 
    public function detail($doctor_id)
    {
-      $data['title'] = "Detail Data Doctor";
+      $data['title'] = "Detail Data Dokter";
 
       $data['data_doctor'] = $this->Doctor_model->getById($doctor_id);
 
@@ -38,9 +38,8 @@ class Doctor extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Doctor";
+      $data['title'] = "Tambah Data Dokter";
 
-      $this->form_validation->set_rules('doctor_id', 'Doctor ID', 'trim|required');
       $this->form_validation->set_rules('doctor_name', 'Doctor Name', 'trim|required');
       $this->form_validation->set_rules('doctor_address', 'Doctor Address', 'trim|required');
       $this->form_validation->set_rules('doctor_gender', 'Doctor Gender', 'trim|required');
@@ -53,7 +52,6 @@ class Doctor extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "doctor_id" => $this->input->post('doctor_id'),
             "doctor_name" => $this->input->post('doctor_name'),
             "doctor_address" => $this->input->post('doctor_address'),
             "doctor_gender" => $this->input->post('doctor_gender'),
@@ -77,7 +75,7 @@ class Doctor extends CI_Controller
 
    public function edit($doctor_id)
    {
-      $data['title'] = "Update Data Doctor";
+      $data['title'] = "Update Data Dokter";
 
       $data['data_doctor'] = $this->Doctor_model->getById($doctor_id);
 

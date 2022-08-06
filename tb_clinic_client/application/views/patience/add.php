@@ -11,7 +11,7 @@
                     ?>
 
                     <div class="form-group row">
-                        <label for="patience_name" class="col-sm-2 col-form-label">Patience Name</label>
+                        <label for="patience_name" class="col-sm-2 col-form-label">Nama Pasien</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="patience_name" name="patience_name" value=" <?= set_value('patience_name'); ?>">
                             <small class="text-danger">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="patience_address" class="col-sm-2 col-form-label">Patience Address</label>
+                        <label for="patience_address" class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" id="patience_address" name="patience_address" rows="3"><?= set_value('patience_address'); ?></textarea>
                             <small class="text-danger">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="patience_blood" class="col-sm-2 col-form-label">Patience Blood</label>
+                        <label for="patience_blood" class="col-sm-2 col-form-label">Golongan Darah</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="patience_blood" name="patience_blood">
                                 <option value="A" selected disabled>Pilih</option>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="patience_age" class="col-sm-2 col-form-label">Patience Age</label>
+                        <label for="patience_age" class="col-sm-2 col-form-label">Umur</label>
                         <div class="col-sm-5">
                             <input type="number" class="form-control" id="patience_age" name="patience_age" value=" <?= set_value('patience_age'); ?>">
                             <small class="text-danger">
@@ -55,7 +55,7 @@
                     </div>
                     <fieldset class="form-group">
                         <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0">Patience Gender</legend>
+                            <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
                             <div class="col-sm-10">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" id="patience_gender" name="patience_gender" value="L"
@@ -78,7 +78,7 @@
                         </div>
                     </fieldset>
                     <div class="form-group row">
-                        <label for="patience_phone" class="col-sm-2 col-form-label">Phone</label>
+                        <label for="patience_phone" class="col-sm-2 col-form-label">Telepon</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="patience_phone" name="patience_phone" value="<?= set_value('patience_phone'); ?>">
                             <small class="text-danger">

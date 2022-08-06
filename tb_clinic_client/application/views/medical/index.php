@@ -27,12 +27,10 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableMEDICAL">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>PATIENCE NAME</th>
-                                    <th>MEDICAL DATE</th>
-                                    <th>MEDICAL DIAGNOSE</th>
-                                    <th>MEDICAL TEMPERATURE</th>
-                                    <th>MEDICAL BLOOD PRESSURE</th>
-                                    <th>MEDICAL TOTAL</th>
+                                    <th>NAMA PASIEN</th>
+                                    <th>TANGGAL PERIKSA</th>
+                                    <th>DIAGNOSA</th>
+                                    <th>TINDAKAN</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -44,12 +42,9 @@
                                        <td><?= $row['patience_name'] ?></td>
                                         <td><?= $row['medical_date'] ?></td>
                                         <td><?= $row['medical_diagnose'] ?></td>
-                                        <td><?= $row['medical_temperature'] ?></td>
-                                        <td><?= $row['medical_blood_pressure'] ?></td>
-                                        <td><?= $row['medical_total'] ?></td>
+                                        <td><?= $row['action_name'] ?></td>
                                         <td>
                                             <a href="<?= base_url('medical/detail/'.$row['medical_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('medical/edit/'.$row['medical_id'] )?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                             <a href="<?= base_url('medical/delete/'.$row['medical_id'] )?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

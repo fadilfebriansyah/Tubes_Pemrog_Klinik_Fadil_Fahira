@@ -27,11 +27,11 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableRECIPE">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>RECIPE ID</th>
-                                    <th>RECIPE QTY</th>
-                                    <th>RECIPE TOTAL</th>
-                                    <th>MEDICINE NAME</th>
-                                    <th>PATIENCE NAME</th>
+                                    <th>NAMA PASIEN</th>
+                                    <th>NAMA OBAT</th>
+                                    <th>HARGA OBAT</th>
+                                    <th>QTY</th>
+                                    <th>TOTAL</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -40,15 +40,14 @@
                                 foreach ($data_recipe as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['recipe_id'] ?></td>
+                                        <td><?= $row['patience_name'] ?></td>
+                                        <td><?= $row['medicine_name'] ?></td>
+                                        <td><?= $row['medicine_price'] ?></td>
                                         <td><?= $row['recipe_qty'] ?></td>
                                         <td><?= $row['recipe_total'] ?></td>
-                                        <td><?= $row['medicine_name'] ?></td>
-                                        <td><?= $row['patience_name'] ?></td>
-                                       
                                         <td>
-                                            <a href="<?= base_url('recipe/detail/'.$row['recipe_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('recipe/delete/'.$row['recipe_id'] )?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('recipe/detail/' . $row['recipe_id']) ?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="<?= base_url('recipe/delete/' . $row['recipe_id']) ?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

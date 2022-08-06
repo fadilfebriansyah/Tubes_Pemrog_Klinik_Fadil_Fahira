@@ -13,7 +13,7 @@ class Medicine extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Medicine";
+      $data['title'] = "List Data Obat";
 
       $data['data_medicine'] = $this->Medicine_model->getAll();
 
@@ -26,7 +26,7 @@ class Medicine extends CI_Controller
 
    public function detail($medicine_id)
    {
-      $data['title'] = "Detail Data Medicine";
+      $data['title'] = "Detail Data Obat";
 
       $data['data_medicine'] = $this->Medicine_model->getById($medicine_id);
 
@@ -38,9 +38,8 @@ class Medicine extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Medicine";
+      $data['title'] = "Tambah Data Obat";
 
-      $this->form_validation->set_rules('medicine_id', 'Medicine ID', 'trim|required');
       $this->form_validation->set_rules('medicine_name', 'Medicine Name', 'trim|required');
       $this->form_validation->set_rules('medicine_category', 'Medicine Category', 'trim|required');
       $this->form_validation->set_rules('medicine_price', 'Medicine Price', 'trim|required');
@@ -52,7 +51,6 @@ class Medicine extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "medicine_id" => $this->input->post('medicine_id'),
             "medicine_name" => $this->input->post('medicine_name'),
             "medicine_category" => $this->input->post('medicine_category'),
             "medicine_price" => $this->input->post('medicine_price'),
@@ -75,7 +73,7 @@ class Medicine extends CI_Controller
 
    public function edit($medicine_id)
    {
-      $data['title'] = "Update Data Medicine";
+      $data['title'] = "Update Data Obat";
 
       $data['data_medicine'] = $this->Medicine_model->getById($medicine_id);
 

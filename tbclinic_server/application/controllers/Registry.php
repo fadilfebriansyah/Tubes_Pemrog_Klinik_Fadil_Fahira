@@ -45,7 +45,6 @@ public function rgs_get()
 function rgs_post()
 {
     $data = array(
-        'registry_id' => $this->post('registry_id'),
         'registry_date' => $this->post('registry_date'),
         'registry_time' => $this->post('registry_time'),
         'registry_price' => $this->post('registry_price'),
@@ -53,11 +52,11 @@ function rgs_post()
         'doctor_id' => $this->post('doctor_id')
     );
 
-    $cek_data = $this->Registry_model->getDataRegistry($this->post('registry_id'));
+    // $cek_data = $this->Registry_model->getDataRegistry($this->post('registry_id'));
 
     //Jika semua data wajib diisi
     if (
-        $data['registry_id'] == NULL || $data['registry_date'] == NULL || $data['registry_time'] == NULL  || $data['registry_price'] == NULL  || $data['patience_id'] == NULL  || $data['doctor_id'] == NULL  
+       $data['registry_date'] == NULL || $data['registry_time'] == NULL  || $data['registry_price'] == NULL  || $data['patience_id'] == NULL  || $data['doctor_id'] == NULL  
     ) {
 
         $this->response(
@@ -69,7 +68,7 @@ function rgs_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data duplikat
-    } else if ($cek_data) {
+    } /*else if ($cek_data) {
         $this->response(
             [
                 'status' => false,
@@ -79,7 +78,7 @@ function rgs_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data tersimpan
-    } elseif ($this->Registry_model->insertRegistry($data) > 0) {
+    } */elseif ($this->Registry_model->insertRegistry($data) > 0) {
         $this->response(
             [
                 'status' => true,

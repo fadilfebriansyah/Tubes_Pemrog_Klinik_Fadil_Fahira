@@ -45,16 +45,15 @@ public function act_get()
 function act_post()
 {
     $data = array(
-        'action_id' => $this->post('action_id'),
         'action_name' => $this->post('action_name'),
         'action_price' => $this->post('action_price')
     );
 
-    $cek_data = $this->Action_model->getDataAction($this->post('action_id'));
+    // $cek_data = $this->Action_model->getDataAction($this->post('action_id'));
 
     //Jika semua data wajib diisi
     if (
-        $data['action_id'] == NULL || $data['action_name'] == NULL || $data['action_price'] == NULL  
+         $data['action_name'] == NULL || $data['action_price'] == NULL  
     ) {
 
         $this->response(
@@ -66,7 +65,7 @@ function act_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data duplikat
-    } else if ($cek_data) {
+    } /*else if ($cek_data) {
         $this->response(
             [
                 'status' => false,
@@ -76,7 +75,7 @@ function act_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data tersimpan
-    } elseif ($this->Action_model->insertAction($data) > 0) {
+    } */elseif ($this->Action_model->insertAction($data) > 0) {
         $this->response(
             [
                 'status' => true,

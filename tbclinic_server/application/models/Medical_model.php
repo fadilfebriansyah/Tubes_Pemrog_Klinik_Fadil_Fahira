@@ -25,8 +25,7 @@ class Medical_model extends CI_Model
         //  $this->db->join('recipe', 'medical_record.medical_id = recipe.medical_id');
 
         $this->db->select('medical_record.medical_id, medical_date, medical_diagnose, medical_temperature,
-         medical_blood_pressure,medical_price, medical_total, action.action_id, action.action_name,action.action_price,
-         registry.registry_id,patience.patience_name');
+         medical_blood_pressure,medical_price, action.action_name, action.action_price, patience.patience_name');
         $query = $this->db->get()->result_array();
         return $query;
     }

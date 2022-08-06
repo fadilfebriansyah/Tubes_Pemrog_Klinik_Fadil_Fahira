@@ -14,9 +14,22 @@ class Transaction_model extends CI_Model
         }
         //medical ka transaction
         $this->db->join('medical_record','medical_record.medical_id = transaction.medical_id');
+         //action ka medical
+         $this->db->join('action', 'action.action_id = medical_record.action_id');
+        //medical ka registry
+        $this->db->join('registry', 'registry.registry_id = medical_record.registry_id');
+         //patience ka registry
+         $this->db->join('patience', 'patience.patience_id = registry.patience_id');
+         //doctor ka registry
+         $this->db->join('doctor', 'doctor.doctor_id = registry.doctor_id');
+         //recipe ka medical
+         $this->db->join('recipe', 'medical_record.medical_id = recipe.medical_id');
+         //medicine ka recipe
+         $this->db->join('medicine','medicine.medicine_id = recipe.medicine_id');
         
-        $this->db->select('transaction_id, transaction_date, transaction_total, 
-        medical_record.medical_id');
+        $this->db->select('transaction_id, transaction_date, medical_record.medical_id, patience.patience_name, doctor.doctor_name, medical_record.medical_diagnose,
+        action.action_name, medicine.medicine_name, medicine.medicine_price, recipe.recipe_qty, action.action_price, medical_record.medical_price, 
+        recipe.recipe_total, transaction_total,');
         $query = $this->db->get()->result_array();
         return $query;
     }

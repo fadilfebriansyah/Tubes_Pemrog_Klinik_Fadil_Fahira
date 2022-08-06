@@ -15,7 +15,7 @@ class Registry extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Registry";
+      $data['title'] = "List Data Pendaftaran";
 
       $data['data_registry'] = $this->Registry_model->getAll();
 
@@ -27,7 +27,7 @@ class Registry extends CI_Controller
 
    public function detail($registry_id)
    {
-      $data['title'] = "Detail Data Registry";
+      $data['title'] = "Detail Data Pendaftaran";
 
       $data['data_registry'] = $this->Registry_model->getById($registry_id);
 
@@ -39,13 +39,12 @@ class Registry extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Registry";
+      $data['title'] = "Tambah Data Pendaftaran";
       
       $data['data_patience'] = $this->Patience_model->getAll();
       $data['data_doctor'] = $this->Doctor_model->getAll();
 
 
-      $this->form_validation->set_rules('registry_id', 'Registry ID', 'trim|required');
       $this->form_validation->set_rules('registry_date', 'Registry Date', 'trim|required');
       $this->form_validation->set_rules('registry_time', 'Registry Time', 'trim|required');
       $this->form_validation->set_rules('registry_price', 'Registry Price', 'trim|required');
@@ -59,7 +58,6 @@ class Registry extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "registry_id" => $this->input->post('registry_id'),
             "registry_date" => $this->input->post('registry_date'),
             "registry_time" => $this->input->post('registry_time'),
             "registry_price" => $this->input->post('registry_price'),
@@ -84,7 +82,7 @@ class Registry extends CI_Controller
 
    public function edit($registry_id)
    {
-      $data['title'] = "Update Data Registry";
+      $data['title'] = "Update Data Pendaftaran";
 
       $data['data_registry'] = $this->Registry_model->getById($registry_id);
       $data['data_patience'] = $this->Patience_model->getAll();

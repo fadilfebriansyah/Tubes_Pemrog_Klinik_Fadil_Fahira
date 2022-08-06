@@ -16,15 +16,6 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes);
                     ?>
-                    <div class="form-group row">
-                        <label for="transaction_id" class="col-sm-2 col-form-label">Transaction Id</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="transaction_id" name="transaction_id" value="<?= set_value('transaction_id'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('transaction_id') ?>
-                            </small>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label for="transaction_date" class="col-sm-2 col-form-label">Transaction Date</label>

@@ -1,15 +1,6 @@
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-   
+<div class="container-fluid mt-4">
+    <div class="jumbotron">
+        <h1 class="display-6">SELAMAT DATANG DI KLINIK FADIL DAN FAHIRA</h1>
+        <p class="lead">Sistem Informasi Klinik FF</p>
+    </div>
 </div>
-
-<!-- Content Row -->
-
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->

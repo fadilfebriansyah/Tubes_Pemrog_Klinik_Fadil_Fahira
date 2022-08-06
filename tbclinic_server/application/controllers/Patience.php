@@ -45,7 +45,6 @@ public function ptc_get()
 function ptc_post()
 {
     $data = array(
-            'patience_id' => $this->post('patience_id'),
             'patience_name' => $this->post('patience_name'),
             'patience_address' => $this->post('patience_address'),
             'patience_blood' => $this->post('patience_blood'),

@@ -45,17 +45,16 @@ public function mdi_get()
 function mdi_post()
 {
     $data = array(
-        'medicine_id' => $this->post('medicine_id'),
         'medicine_name' => $this->post('medicine_name'),
         'medicine_category' => $this->post('medicine_category'),
         'medicine_price' => $this->post('medicine_price')
     );
 
-    $cek_data = $this->Medicine_model->getDataMedicine($this->post('medicine_id'));
+    // $cek_data = $this->Medicine_model->getDataMedicine($this->post('medicine_id'));
 
     //Jika semua data wajib diisi
     if (
-        $data['medicine_id'] == NULL || $data['medicine_name'] == NULL || $data['medicine_category'] == NULL || $data['medicine_price']
+        $data['medicine_name'] == NULL || $data['medicine_category'] == NULL || $data['medicine_price']
         == NULL 
     ) {
 
@@ -68,7 +67,7 @@ function mdi_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data duplikat
-    } else if ($cek_data) {
+    } /*else if ($cek_data) {
         $this->response(
             [
                 'status' => false,
@@ -78,7 +77,7 @@ function mdi_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data tersimpan
-    } elseif ($this->Medicine_model->insertMedicine($data) > 0) {
+    } */elseif ($this->Medicine_model->insertMedicine($data) > 0) {
         $this->response(
             [
                 'status' => true,

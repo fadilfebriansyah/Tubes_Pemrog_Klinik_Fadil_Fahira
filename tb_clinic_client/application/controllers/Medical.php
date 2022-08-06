@@ -16,7 +16,7 @@ class Medical extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Medical";
+      $data['title'] = "List Data Rekam Medis";
 
       $data['data_medical'] = $this->Medical_model->getAll();
 
@@ -29,7 +29,7 @@ class Medical extends CI_Controller
 
    public function detail($medical_id)
    {
-      $data['title'] = "Detail Data Medical";
+      $data['title'] = "Detail Data Rekam Medis";
 
       $data['data_medical'] = $this->Medical_model->getById($medical_id);
 
@@ -41,7 +41,7 @@ class Medical extends CI_Controller
 
    public function add()
    {
-      $data['title'] = "Tambah Data Medical";
+      $data['title'] = "Tambah Data Rekam Medis";
 
       $data['data_registry'] = $this->Registry_model->getAll();
       $data['data_action'] = $this->Action_model->getAll();
@@ -63,7 +63,6 @@ class Medical extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "medical_id" => $this->input->post('medical_id'),
             "registry_id" => $this->input->post('registry_id'),
             "medical_date" => $this->input->post('medical_date'),
             "medical_diagnose" => $this->input->post('medical_diagnose'),
@@ -91,7 +90,7 @@ class Medical extends CI_Controller
 
    public function edit($medical_id)
    {
-      $data['title'] = "Update Data Medical";
+      $data['title'] = "Update Data Rekam Medis";
 
       $data['data_medical'] = $this->Medical_model->getById($medical_id);
       $data['data_registry'] = $this->Registry_model->getAll();

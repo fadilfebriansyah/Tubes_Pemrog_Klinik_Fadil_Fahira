@@ -45,18 +45,17 @@ public function dct_get()
 function dct_post()
 {
     $data = array(
-        'doctor_id' => $this->post('doctor_id'),
         'doctor_name' => $this->post('doctor_name'),
         'doctor_address' => $this->post('doctor_address'),
         'doctor_gender' => $this->post('doctor_gender'),
         'doctor_phone' => $this->post('doctor_phone')
     );
 
-    $cek_data = $this->Doctor_model->getDataDoctor($this->post('doctor_id'));
+    // $cek_data = $this->Doctor_model->getDataDoctor($this->post('doctor_id'));
 
     //Jika semua data wajib diisi
     if (
-        $data['doctor_id'] == NULL || $data['doctor_name'] == NULL || $data['doctor_address'] == NULL || $data['doctor_gender'] == NULL || $data['doctor_phone'] == NULL  
+        $data['doctor_name'] == NULL || $data['doctor_address'] == NULL || $data['doctor_gender'] == NULL || $data['doctor_phone'] == NULL  
     ) {
 
         $this->response(
@@ -68,7 +67,7 @@ function dct_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data duplikat
-    } else if ($cek_data) {
+    } /*else if ($cek_data) {
         $this->response(
             [
                 'status' => false,
@@ -78,7 +77,7 @@ function dct_post()
             RestController::HTTP_BAD_REQUEST
         );
         //Jika data tersimpan
-    } elseif ($this->Doctor_model->insertDoctor($data) > 0) {
+    }*/ elseif ($this->Doctor_model->insertDoctor($data) > 0) {
         $this->response(
             [
                 'status' => true,

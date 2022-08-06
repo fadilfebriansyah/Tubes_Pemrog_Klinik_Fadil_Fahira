@@ -3,7 +3,7 @@
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>Registry</a></li>
+            <li class="breadcrumb-item"><a>Pendaftaran</a></li>
             <li class="breadcrumb-item active" aria-current="page">List Data</li>
         </ol>
     </nav>
@@ -28,10 +28,10 @@
                             <thead>
                                 <tr class="table-primary">
                                     <th>NAMA PASIEN</th>
+                                    <th>NAMA DOKTER</th>
                                     <th>TANGGAL</th>
                                     <th>WAKTU</th>
                                     <th>BIAYA</th>
-                                    <th>NAMA DOKTER</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -41,11 +41,10 @@
                                 ?>
                                     <tr>
                                         <td><?= $row['patience_name'] ?></td>
+                                        <td><?= $row['doctor_name'] ?></td>
                                         <td><?= $row['registry_date'] ?></td>
                                         <td><?= $row['registry_time'] ?></td>
                                         <td><?= $row['registry_price'] ?></td> 
-                                        <td><?= $row['doctor_name'] ?></td>
-
                                         <td>
                                             <a href="<?= base_url('registry/detail/' . $row['registry_id']) ?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                                             <a href="<?= base_url('registry/edit/' . $row['registry_id']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>

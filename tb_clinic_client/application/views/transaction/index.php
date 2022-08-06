@@ -27,10 +27,10 @@
                         <table class="table table-striped table-bordered tablehover text-sm" id="tableTRANSACTION">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>Transaction ID</th>
-                                    <th>Transaction DATE</th>
-                                    <th>Transaction TOTAL</th>
-                                    <th>Medical ID</th>
+                                    <th>Nomor Periksa</th>
+                                    <th>Tanggal</th>
+                                    <th>Total Transaksi</th>
+
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
@@ -39,14 +39,12 @@
                                 foreach ($data_transaction as $row) :
                                 ?>
                                     <tr>
-                                        <td><?= $row['transaction_id'] ?></td>
+                                        <td><?= $row['medical_id'] ?></td>
                                         <td><?= $row['transaction_date'] ?></td>
                                         <td><?= $row['transaction_total'] ?></td>
-                                        <td><?= $row['medical_id'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('transaction/detail/'.$row['transaction_id'] )?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('transaction/edit/'.$row['transaction_id'] )?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="<?= base_url('transaction/delete/'.$row['transaction_id'] )?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('transaction/detail/' . $row['transaction_id']) ?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="<?= base_url('transaction/delete/' . $row['transaction_id']) ?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

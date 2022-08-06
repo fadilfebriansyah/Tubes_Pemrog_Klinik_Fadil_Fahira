@@ -16,7 +16,7 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes); ?>
                     <div class="form-group row">
-                        <label for="medicine_id" class="col-sm-2 col-form-label">Medicine Id</label>
+                        <label for="medicine_id" class="col-sm-2 col-form-label">Nomor Obat</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="medicine_id" name="medicine_id" value=" <?= $data_medicine['medicine_id']; ?>" readonly>
                             <small class="text-danger">
@@ -25,27 +25,27 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medicine_name" class="col-sm-2 col-formlabel">Medicine Name</label>
+                        <label for="medicine_name" class="col-sm-2 col-form-label">Nama Obat</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="medicine_name" name="medicine_name" value=" <?= $data_medicine['medicine_name']; ?>">
+                            <input type="text" class="form-control" id="medicine_name" name="medicine_name" value=" <?= set_value('medicine_name'); ?>">
                             <small class="text-danger">
                                 <?php echo form_error('medicine_name') ?>
                             </small>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medicine_category" class="col-sm-2 col-formlabel">Medicine Category</label>
+                        <label for="medicine_category" class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="medicine_category" name="medicine_category" value=" <?= $data_medicine['medicine_category']; ?>">
+                            <input type="text" class="form-control" id="medicine_category" name="medicine_category" value=" <?= set_value('medicine_category'); ?>">
                             <small class="text-danger">
                                 <?php echo form_error('medicine_category') ?>
                             </small>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medicine_price" class="col-sm-2 col-formlabel">Medicine Price</label>
+                        <label for="medicine_price" class="col-sm-2 col-form-label">Harga</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="medicine_price" name="medicine_price" value=" <?= $data_medicine['medicine_price']; ?>">
+                            <input type="text" class="form-control" id="medicine_price" name="medicine_price" value=" <?= set_value('medicine_price'); ?>">
                             <small class="text-danger">
                                 <?php echo form_error('medicine_price') ?>
                             </small>

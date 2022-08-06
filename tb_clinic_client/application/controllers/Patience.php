@@ -13,7 +13,7 @@ class Patience extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Patience";
+      $data['title'] = "List Data Pasien";
 
       $data['data_patience'] = $this->Patience_model->getAll();
 
@@ -26,7 +26,7 @@ class Patience extends CI_Controller
 
    public function detail($patience_id)
    {
-      $data['title'] = "Detail Data Patience";
+      $data['title'] = "Detail Data Pasien";
 
       $data['data_patience'] = $this->Patience_model->getById($patience_id);
 
@@ -38,7 +38,7 @@ class Patience extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Patience";
+      $data['title'] = "Tambah Data Pasien";
 
       $this->form_validation->set_rules('patience_name', 'Patience Name', 'trim|required');
       $this->form_validation->set_rules('patience_address', 'Patience Address', 'trim|required');
@@ -54,7 +54,6 @@ class Patience extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "patience_id" => $this->input->post('patience_id'),
             "patience_name" => $this->input->post('patience_name'),
             "patience_address" => $this->input->post('patience_address'),
             "patience_blood" => $this->input->post('patience_blood'),
@@ -80,7 +79,7 @@ class Patience extends CI_Controller
 
    public function edit($patience_id)
    {
-      $data['title'] = "Update Data Patience";
+      $data['title'] = "Update Data Pasien";
 
       $data['data_patience'] = $this->Patience_model->getById($patience_id);
 

@@ -12,18 +12,16 @@
 
             <div class="card">
                 <div class="card-header bg-info">
-                    Detail Data Registry
+                    Detail Data Pendaftaran
                 </div>
                 <div class="card-body">
                 <?php foreach ($data_registry as $data_registry) : ?>
-                    <h5 class="card-title"><b>Registry ID:</b><br><?=$data_registry['registry_id']?></h5>
-                    <p class="card-text"><b>Registry Date:</b><br> <?=$data_registry['registry_date']?></p>
-                    <p class="card-text"><b>Registry Time:</b><br><?= $data_registry['registry_time']?></p>
-                    <p class="card-text"><b>Registry Price:</b><br><?= $data_registry['registry_price']?></p>
-                    <p class="card-text"><b>Paetience ID:</b><br><?= $data_registry['patience_id']?></p>
-                    <p class="card-text"><b>Paetience Name:</b><br><?= $data_registry['patience_name']?></p>
-                    <p class="card-text"><b>Doctor ID:</b><br><?= $data_registry['doctor_id']?></p>
-                    <p class="card-text"><b>Doctor Name:</b><br><?= $data_registry['doctor_name']?></p>
+                    <h5 class="card-title"><b>Nomor Pendaftaran:</b><br><?=$data_registry['registry_id']?></h5>
+                    <p class="card-text"><b>Nama Pasien:</b><br><?= $data_registry['patience_name']?></p>
+                    <p class="card-text"><b>Nama Dokte:</b><br><?= $data_registry['doctor_name']?></p>
+                    <p class="card-text"><b>Tanggal Pendaftaran:</b><br> <?=$data_registry['registry_date']?></p>
+                    <p class="card-text"><b>Waktu Pendaftaran:</b><br><?= $data_registry['registry_time']?></p>
+                    <p class="card-text"><b>Biaya Pendaftaran:</b><br><?= $data_registry['registry_price']?></p>
                     <p></p>
                     <a href="<?= base_url(); ?>registry" class="btn btn-primary">Kembali</a>
                     <?php endforeach; ?>

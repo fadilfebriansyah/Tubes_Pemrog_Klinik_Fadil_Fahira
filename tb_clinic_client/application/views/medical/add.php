@@ -16,18 +16,9 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes);
                     ?>
-                    <div class="form-group row">
-                        <label for="medical_id" class="col-sm-2 col-form-label">Medical Id</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="medical_id" name="medical_id" value="<?= set_value('medical_id'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('medical_id') ?>
-                            </small>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
-                        <label for="registry_id" class="col-sm-2 col-form-label">Registry Id</label>
+                        <label for="registry_id" class="col-sm-2 col-form-label">Nomor Pendaftaran</label>
                         <div class="col-sm-5">
                             <select class="form-control" name="registry_id" id="registry_id">
                                 <?php foreach ($data_registry as $rgs) : ?>
@@ -41,7 +32,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="medical_date" class="col-sm-2 col-form-label">Medical Date</label>
+                        <label for="medical_date" class="col-sm-2 col-form-label">Tanggal</label>
                         <div class="col-sm-5">
                             <input type="date" class="form-control" id="medical_date" name="medical_date" value=" <?= set_value('medical_date'); ?>">
                             <small class="text-danger">
@@ -50,7 +41,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medical_diagnose" class="col-sm-2 col-form-label">Medical Diagnose</label>
+                        <label for="medical_diagnose" class="col-sm-2 col-form-label">Diagnosa</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="medical_diagnose" name="medical_diagnose" value="<?= set_value('medical_diagnose'); ?>">
                             <small class="text-danger">
@@ -59,7 +50,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medical_temperature" class="col-sm-2 col-form-label">Medical Temperature</label>
+                        <label for="medical_temperature" class="col-sm-2 col-form-label">Suhu Badan</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="medical_temperature" name="medical_temperature" value="<?= set_value('medical_temperature'); ?>">
                             <small class="text-danger">
@@ -68,7 +59,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medical_blood_pressure" class="col-sm-2 col-form-label">Medical Blood Pressure</label>
+                        <label for="medical_blood_pressure" class="col-sm-2 col-form-label">Tekanan Darah</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="medical_blood_pressure" name="medical_blood_pressure" value="<?= set_value('medical_blood_pressure'); ?>">
                             <small class="text-danger">
@@ -77,7 +68,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="medical_price" class="col-sm-2 col-form-label">Medical Price</label>
+                        <label for="medical_price" class="col-sm-2 col-form-label">Biaya Periksa</label>
                         <div class="col-sm-5">
                             <input type="number" class="form-control" id="medical_price" name="medical_price">
                             <small class="text-danger">
@@ -87,7 +78,7 @@
                     </div>
 
                     <div class="form-group row">
-                    <label for="action_id" class="col-sm-2 col-form-label">ACTION ID</label>
+                    <label for="action_id" class="col-sm-2 col-form-label">Tindakan</label>
                     <div class="col-sm-5">
                             <select class="form-control" id="action_id" name="action_id">
                             <option value="">Silahkan Pilih Tindakan</option>
@@ -104,7 +95,7 @@
                     </div> 
                     
                     <div class="form-group row">
-                        <label for="harga_aksi" class="col-sm-2 col-form-label">HARGA TINDAKAN</label>
+                        <label for="harga_aksi" class="col-sm-2 col-form-label">Biaya Tindakan</label>
                         <div class="col-sm-5">
                             <input type="number" class="form-control" id="harga_aksi" name="harga_aksi" value="" disabled>
                         </div>
@@ -119,6 +110,7 @@
                             </small>
                         </div>
                     </div>
+
                     <div class="col-sm-10 offset-md-2">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a class="btn btn-secondary" href="javascript:history.back()">Kembali</a>

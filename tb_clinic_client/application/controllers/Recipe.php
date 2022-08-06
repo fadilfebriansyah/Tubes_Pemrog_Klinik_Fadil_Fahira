@@ -16,7 +16,7 @@ class Recipe extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Recipe";
+      $data['title'] = "List Data Resep Obat";
 
       $data['data_recipe'] = $this->Recipe_model->getAll();
 
@@ -40,7 +40,7 @@ class Recipe extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Recipe";
+      $data['title'] = "Tambah Data Resep Obat";
       
       $data['data_medicine'] = $this->Medicine_model->getAll();
       $data['data_medical'] = $this->Medical_model->getAll();
@@ -57,11 +57,10 @@ class Recipe extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "recipe_id" => $this->input->post('recipe_id'),
             "recipe_qty" => $this->input->post('recipe_qty'),
-            "recipe_total" => $this->input->post('recipe_total'),
             "medicine_id" => $this->input->post('medicine_id'),
             "medical_id" => $this->input->post('medical_id'),
+            "recipe_total" => $this->input->post('recipe_total'),
             "KEY" => "ulbi123"
          ];
 

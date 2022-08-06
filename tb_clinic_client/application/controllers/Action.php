@@ -13,7 +13,7 @@ class Action extends CI_Controller
 
    public function index()
    {
-      $data['title'] = "List Data Action";
+      $data['title'] = "List Data Tindakan";
 
       $data['data_action'] = $this->Action_model->getAll();
 
@@ -26,7 +26,7 @@ class Action extends CI_Controller
 
    public function detail($action_id)
    {
-      $data['title'] = "Detail Data Action";
+      $data['title'] = "Detail Data Tindakan";
 
       $data['data_action'] = $this->Action_model->getById($action_id);
 
@@ -38,9 +38,8 @@ class Action extends CI_Controller
    
    public function add()
    {
-      $data['title'] = "Tambah Data Action";
+      $data['title'] = "Tambah Data Tindakan";
 
-      $this->form_validation->set_rules('action_id', 'Action ID', 'trim|required');
       $this->form_validation->set_rules('action_name', 'Action Name', 'trim|required');
       $this->form_validation->set_rules('action_price', 'Action Price', 'trim|required');
 
@@ -51,7 +50,6 @@ class Action extends CI_Controller
          $this->load->view('templates/footer');
       } else {
          $data = [
-            "action_id" => $this->input->post('action_id'),
             "action_name" => $this->input->post('action_name'),
             "action_price" => $this->input->post('action_price'),
             "KEY" => "ulbi123"
@@ -73,7 +71,7 @@ class Action extends CI_Controller
 
    public function edit($action_id)
    {
-      $data['title'] = "Update Data Action";
+      $data['title'] = "Update Data Tindakan";
 
       $data['data_action'] = $this->Action_model->getById($action_id);
 
