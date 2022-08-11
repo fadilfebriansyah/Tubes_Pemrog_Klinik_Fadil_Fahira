@@ -28,19 +28,19 @@
 
                                     <form action="<?= base_url('auth/registerclient') ?>" method="post" class="user">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" required>
                                             <div class="invalid-feedback">
                                                 <?= form_error('username') ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="no_hp" name="no_hp" placeholder="No Handphone">
+                                            <input type="text" class="form-control form-control-user" id="no_hp" name="no_hp" placeholder="No Handphone" required>
                                             <div class="invalid-feedback">
                                                 <?= form_error('no_hp') ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
                                             <div class="invalid-feedback">
                                                 <?= form_error('password') ?>
                                             </div>
