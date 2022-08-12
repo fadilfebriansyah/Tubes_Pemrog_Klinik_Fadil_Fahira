@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <label for="registry_date" class="col-sm-2 col-formlabel">Registry Date</label>
                         <div class="col-sm-5">
-                            <input type="date" class="form-control" id="registry_date" name="registry_date" value=" <?= $data_registry['registry_date']; ?>">
+                            <input type="date" class="form-control" id="registry_date" name="registry_date" value="<?= $data_registry['registry_date']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('registry_date') ?>
                             </small>
@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label for="registry_time" class="col-sm-2 col-formlabel">Registry Time</label>
                         <div class="col-sm-5">
-                            <input type="time" class="form-control" id="registry_time" name="registry_time" value=" <?= $data_registry['registry_time']; ?>">
+                            <input type="time" class="form-control" id="registry_time" name="registry_time" value="<?= $data_registry['registry_time']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('registry_time') ?>
                             </small>
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label for="registry_price" class="col-sm-2 col-formlabel">Registry Price</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="registry_price" name="registry_price" value=" <?= $data_registry['registry_price']; ?>">
+                            <input type="text" class="form-control" id="registry_price" name="registry_price" value="<?= $data_registry['registry_price']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('registry_price') ?>
                             </small>
