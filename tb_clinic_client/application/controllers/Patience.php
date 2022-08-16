@@ -15,12 +15,27 @@ class Patience extends CI_Controller
    {
       $data['title'] = "List Data Pasien";
 
+      $check = $this->Patience_model->getAll();
       $data['data_patience'] = $this->Patience_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_patience'] = $this->Patience_model->getAll();
+      } else{
+         $data['data_patience'] = $this->Patience_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('patience/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('patience/index', $data);
       $this->load->view('templates/footer');
+      }
       
    }
 

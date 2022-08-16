@@ -16,13 +16,27 @@ class Registry extends CI_Controller
    public function index()
    {
       $data['title'] = "List Data Pendaftaran";
-
+      $check = $this->Registry_model->getAll();
       $data['data_registry'] = $this->Registry_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_registry'] = $this->Registry_model->getAll();
+      } else{
+         $data['data_registry'] = $this->Registry_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('registry/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('registry/index', $data);
       $this->load->view('templates/footer');
+      }
    }
 
    public function detail($registry_id)

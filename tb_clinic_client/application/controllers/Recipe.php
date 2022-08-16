@@ -18,12 +18,27 @@ class Recipe extends CI_Controller
    {
       $data['title'] = "List Data Resep Obat";
 
+      $check = $this->Recipe_model->getAll();
       $data['data_recipe'] = $this->Recipe_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_recipe'] = $this->Recipe_model->getAll();
+      } else{
+         $data['data_recipe'] = $this->Recipe_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('recipe/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('recipe/index', $data);
       $this->load->view('templates/footer');
+      }
    }
 
    public function detail($recipe_id)

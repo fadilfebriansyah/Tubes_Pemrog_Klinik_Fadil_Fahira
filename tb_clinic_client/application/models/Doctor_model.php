@@ -15,7 +15,9 @@ class Doctor_model extends CI_Model
             // Base URI is used with relative requests
             'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/doctor/dct',
             // You can set any number of default request options.
-            'auth'  => ['ulbi', 'pemrograman3'],
+            // jika login authnya tidak sesuai dengan yang ada di file rest
+            'auth'  => ['admin', '1234'],
+            'http_errors' => false
         ]);
     }
 
@@ -24,12 +26,13 @@ class Doctor_model extends CI_Model
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'KEY' => 'ulbi123'
-            ]
+            ],
+            'http_errors' => false
         ]);
 
         $result = json_decode($response->getBody()->getContents(), TRUE);
-
-        return $result['data'];
+        return $result;
+        // return $result['data'];
     }
 
     public function getById($doctor_id)
@@ -42,7 +45,6 @@ class Doctor_model extends CI_Model
         ]);
 
         $result = json_decode($response->getBody()->getContents(),TRUE);
-
         return $result['data'];
     }
     public function save($data)

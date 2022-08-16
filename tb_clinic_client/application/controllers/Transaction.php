@@ -18,12 +18,27 @@ class Transaction extends CI_Controller
    {
       $data['title'] = "List Data Transaksi";
 
+      $check = $this->Transaction_model->getAll();
       $data['data_transaction'] = $this->Transaction_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_transaction'] = $this->Transaction_model->getAll();
+      } else{
+         $data['data_transaction'] = $this->Transaction_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('transaction/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('transaction/index', $data);
       $this->load->view('templates/footer');
+      }
    }
 
    public function detail($transaction_id)

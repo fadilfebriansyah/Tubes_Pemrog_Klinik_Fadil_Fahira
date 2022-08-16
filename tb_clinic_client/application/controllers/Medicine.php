@@ -14,13 +14,27 @@ class Medicine extends CI_Controller
    public function index()
    {
       $data['title'] = "List Data Obat";
-
+      $check = $this->Medicine_model->getAll();
       $data['data_medicine'] = $this->Medicine_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_medicine'] = $this->Medicine_model->getAll();
+      } else{
+         $data['data_medicine'] = $this->Medicine_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('medicine/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('medicine/index', $data);
       $this->load->view('templates/footer');
+      }
       
    }
 

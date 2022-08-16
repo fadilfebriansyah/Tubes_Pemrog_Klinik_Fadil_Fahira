@@ -14,13 +14,27 @@ class Doctor extends CI_Controller
    public function index()
    {
       $data['title'] = "List Data Dokter";
-
+      $check = $this->Doctor_model->getAll();
       $data['data_doctor'] = $this->Doctor_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_doctor'] = $this->Doctor_model->getAll();
+      } else{
+         $data['data_doctor'] = $this->Doctor_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('doctor/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('doctor/index', $data);
       $this->load->view('templates/footer');
+      }
       
    }
 

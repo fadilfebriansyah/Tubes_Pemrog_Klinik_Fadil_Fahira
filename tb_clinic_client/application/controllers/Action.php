@@ -14,14 +14,27 @@ class Action extends CI_Controller
    public function index()
    {
       $data['title'] = "List Data Tindakan";
-
+      $check = $this->Action_model->getAll();
       $data['data_action'] = $this->Action_model->getAll();
 
+      if(isset($check['error'])){
+         $data['data_action'] = $this->Action_model->getAll();
+      } else{
+         $data['data_action'] = $this->Action_model->getAll()['data'];
+      }
+
+      if(isset($check['error'])){
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/menu');
+      $this->load->view('action/gagal', $data);
+      $this->load->view('templates/footer');
+      }
+      else {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/menu');
       $this->load->view('action/index', $data);
       $this->load->view('templates/footer');
-      
+      }
    }
 
    public function detail($action_id)

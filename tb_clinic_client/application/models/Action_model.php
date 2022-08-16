@@ -15,7 +15,9 @@ class Action_model extends CI_Model
             // Base URI is used with relative requests
             'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/action/act',
             // You can set any number of default request options.
-            'auth'  => ['ulbi', 'pemrograman3'],
+            // jika login authnya tidak sesuai dengan yang ada di file rest
+            'auth'  => ['admin', '1234'],
+            'http_errors' => false
         ]);
     }
 
@@ -24,12 +26,14 @@ class Action_model extends CI_Model
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'KEY' => 'ulbi123'
-            ]
+            ],
+            'http_errors' => false
         ]);
 
         $result = json_decode($response->getBody()->getContents(), TRUE);
 
-        return $result['data'];
+        // return $result['data'];
+        return $result;
     }
 
     public function getById($action_id)
@@ -38,7 +42,7 @@ class Action_model extends CI_Model
             'query' => [
                 'KEY' => 'ulbi123',
                 'action_id' => $action_id
-                ]
+            ]
         ]);
 
         $result = json_decode($response->getBody()->getContents(),TRUE);

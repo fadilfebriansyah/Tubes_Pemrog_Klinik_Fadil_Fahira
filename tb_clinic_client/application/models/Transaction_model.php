@@ -16,6 +16,7 @@ class Transaction_model extends CI_Model
             'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/transaction/trs',
             // You can set any number of default request options.
             'auth'  => ['ulbi', 'pemrograman3'],
+            'http_errors' => false
         ]);
     }
 
@@ -24,12 +25,13 @@ class Transaction_model extends CI_Model
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'KEY' => 'ulbi123'
-            ]
+            ],
+            'http_errors' => false
         ]);
 
         $result = json_decode($response->getBody()->getContents(), TRUE);
 
-        return $result['data'];
+        return $result;
     }
 
     public function getById($transaction_id)

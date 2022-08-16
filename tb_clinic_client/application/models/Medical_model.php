@@ -16,6 +16,7 @@ class Medical_model extends CI_Model
             'base_uri' => 'http://localhost/Tubes_Pemrog_Klinik_Fadil_Fahira/tbclinic_server/medical/mdc',
             // You can set any number of default request options.
             'auth'  => ['ulbi', 'pemrograman3'],
+            'http_errors' => false
         ]);
     }
 
@@ -24,17 +25,18 @@ class Medical_model extends CI_Model
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'KEY' => 'ulbi123'
-            ]
+            ],
+            'http_errors' => false
         ]);
 
         $result = json_decode($response->getBody()->getContents(), TRUE);
         
-        if (!$result['data']) {
-            $pesan = 'data tidak ada';
-            return $pesan ;
-        }
+        // if (!$result['data']) {
+        //     $pesan = 'data tidak ada';
+        //     return $pesan ;
+        // }
 
-        return $result['data'];
+        return $result;
     }
 
     public function getById($medical_id)
