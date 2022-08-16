@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="action_name" class="col-sm-2 col-form-label">Nama Tindakan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="action_name" name="action_name" value=" <?= set_value('action_name'); ?>">
+                            <input type="text" class="form-control" id="action_name" name="action_name" value=" <?= $data_action['action_name']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('action_name') ?>
                             </small>
@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="action_price" class="col-sm-2 col-form-label">Biaya Tindakan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="action_price" name="action_price" value=" <?= set_value('action_price'); ?>">
+                            <input type="text" class="form-control" id="action_price" name="action_price" value=" <?= $data_action['action_price']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('action_price') ?>
                             </small>

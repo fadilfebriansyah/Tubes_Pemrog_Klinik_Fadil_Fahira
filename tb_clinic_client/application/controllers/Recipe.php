@@ -44,6 +44,7 @@ class Recipe extends CI_Controller
       
       $data['data_medicine'] = $this->Medicine_model->getAll();
       $data['data_medical'] = $this->Medical_model->getAll();
+     
       
 
       $this->form_validation->set_rules('recipe_qty', 'Recipe qty', 'trim|required');

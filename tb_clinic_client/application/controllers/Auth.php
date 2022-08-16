@@ -87,9 +87,14 @@ class Auth extends CI_Controller
 		$krktr = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$pjgktkr = strlen($krktr);
 		$keyLength = 14;
-		$kuncibaru['kuncibaru'] = '';
+		$kuncibaru['kuncibaru'] = 'KEY-';
+		// $kuncikey = "KEY-";
 		for ($i = 0;$i < $keyLength; $i++) {
+<<<<<<< HEAD
 			$kuncibaru['kuncibaru'] .= $krktr[Key- rand(0, $pjgktkr - 1)];
+=======
+			$kuncibaru['kuncibaru'] .=  $krktr[rand(0,$pjgktkr - 1)];
+>>>>>>> 1d0ee2ffd05f471c70bca13fa2a780b2f1cb84ff
 		}
 		
 		$data = [

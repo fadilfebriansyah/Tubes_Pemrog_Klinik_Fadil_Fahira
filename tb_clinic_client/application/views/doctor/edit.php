@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label for="doctor_id" class="col-sm-2 col-form-label">Nomor Dokter</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="doctor_id" name="doctor_id" value=" <?= $data_doctor['doctor_id']; ?>" readonly>
+                            <input type="text" class="form-control" id="doctor_id" name="doctor_id" value="<?= $data_doctor['doctor_id']; ?>" readonly>
                             <small class="text-danger">
                                 <?php echo form_error('doctor_id') ?>
                             </small>
@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="doctor_name" class="col-sm-2 col-form-label">Nama Dokter</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="doctor_name" name="doctor_name" value=" <?= set_value('doctor_name'); ?>">
+                            <input type="text" class="form-control" id="doctor_name" name="doctor_name" value="<?= $data_doctor['doctor_name']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('doctor_name') ?>
                             </small>
@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="doctor_address" class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="doctor_address" name="doctor_address" rows="3"><?= set_value('doctor_address'); ?></textarea>
+                            <textarea class="form-control" id="doctor_address" name="doctor_address" rows="3"><?= $data_doctor['doctor_address']; ?></textarea>
                             <small class="text-danger">
                                 <?php echo form_error('doctor_address') ?>
                             </small>
@@ -47,15 +47,13 @@
                             <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
                             <div class="col-sm-10">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="doctor_gender" name="doctor_gender" value="L"
-                                        <?php if (set_value('doctor_gender') == "L") : echo "checked"; endif; ?>>
+                                    <input class="form-check-input" type="radio" id="doctor_gender" name="doctor_gender" value="L" <?php if ($data_doctor['doctor_gender'] == "L") : echo "checked"; endif; ?>>
                                     <label class="form-check-label" for="doctor_gender">
                                         L
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="doctor_gender2" name="doctor_gender" value="P"
-                                        <?php if (set_value('doctor_gender') == "P") : echo "checked"; endif; ?>>
+                                    <input class="form-check-input" type="radio" id="doctor_gender2" name="doctor_gender" value="P" <?php if ($data_doctor['doctor_gender'] == "P") : echo "checked"; endif; ?>>
                                     <label class="form-check-label" for="doctor_gender2">
                                         P
                                     </label>
@@ -69,7 +67,7 @@
                     <div class="form-group row">
                         <label for="doctor_phone" class="col-sm-2 col-form-label">Telepon</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="doctor_phone" name="doctor_phone" value="<?= set_value('doctor_phone'); ?>">
+                            <input type="text" class="form-control" id="doctor_phone" name="doctor_phone" value="<?= $data_doctor['doctor_phone']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('doctor_phone') ?>
                             </small>
