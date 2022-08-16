@@ -89,8 +89,9 @@ class Auth extends CI_Controller
 		$keyLength = 14;
 		$kuncibaru['kuncibaru'] = '';
 		for ($i = 0;$i < $keyLength; $i++) {
-			$kuncibaru['kuncibaru'] .= $krktr[rand(0, $pjgktkr - 1)];
+			$kuncibaru['kuncibaru'] .= $krktr[Key- rand(0, $pjgktkr - 1)];
 		}
+		
 		$data = [
 			'user_id' => $this->input->post('user_id'),
 			'key' => $kuncibaru['kuncibaru']
